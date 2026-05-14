@@ -1,5 +1,11 @@
+trigger:
+- main
+
 pool:
   vmImage: 'windows-latest'
 
 steps:
--  powershell: Write-Host "Hello Azure Devops!"
+- task: Maven@4
+  inputs:
+    mavenPomFile: 'pom.xml'
+    goals: 'clean package'
